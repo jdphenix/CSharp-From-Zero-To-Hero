@@ -16,6 +16,14 @@
     "Price": "€10"
   },
   {
+    "Shop": "Kwiki Mart",
+    "City": "Springfield",
+    "Street": "HoloPapap 2",
+    "Item": "Apple",
+    "DateTime": "2020-01-05T20:00:00Z",
+    "Price": "€3"
+  },
+  {
     "Shop": "Wallmart",
     "City": "London",
     "Street": "ANC 54",

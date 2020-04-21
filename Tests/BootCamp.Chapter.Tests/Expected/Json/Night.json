@@ -1,0 +1,21 @@
+{
+	"RushHour": 22,
+	"Hours": {
+		"20": {
+			"Count": 4,
+			"Earned": 9
+		},
+		"21": {
+			"Count": 0,
+			"Earned": 0
+		},
+		"22": {
+			"Count": 2,
+			"Earned": 25.50
+		},
+		"23": {
+			"Count": 2,
+			"Earned": 10.5
+		}
+	}
+}

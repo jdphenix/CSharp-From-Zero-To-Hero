@@ -19,34 +19,46 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Expected\Aibe.csv">
+    <None Update="Expected\Csv\Aibe.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\CityItemsMax.csv">
+    <None Update="Expected\Csv\CityItemsMax.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\CityItemsMin.csv">
+    <None Update="Expected\Csv\CityItemsMin.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\CityMoneyMax.csv">
+    <None Update="Expected\Csv\CityMoneyMax.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\CityMoneyMin.csv">
+    <None Update="Expected\Csv\CityMoneyMin.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\DailyKwiki.csv">
+    <None Update="Expected\Csv\DailyKwiki.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\FullDay.csv">
+    <None Update="Expected\Csv\FullDay.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\Kwiki.csv">
+    <None Update="Expected\Csv\Kwiki Mart.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\Night.csv">
+    <None Update="Expected\Csv\Night.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Expected\Wallmart.csv">
+    <None Update="Expected\Csv\Wallmart.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Expected\Json\CityItemsMax.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Expected\Json\CityItemsMin.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Expected\Json\CityMoneyMax.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Expected\Json\CityMoneyMin.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Input\Empty.json">
@@ -55,6 +67,10 @@
     <None Update="Input\Transactions.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Expected\Xml\" />
   </ItemGroup>
 
 </Project>
