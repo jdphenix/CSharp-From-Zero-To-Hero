@@ -69,10 +69,9 @@ namespace BootCamp.Chapter
             throw new InvalidCommandException();
         }
 
-        internal void ExecuteCommand(Stream stream)
+        internal void ExecuteCommand(ITransactionStream stream)
         {
-            var transactionStream = new TransactionStream(stream);
-            var transactions = transactionStream.ReadTransactionUntilEnd().ToArray();
+            var transactions = stream.ReadTransactionUntilEnd().ToArray();
 
             var result = _extrema(transactions);
 

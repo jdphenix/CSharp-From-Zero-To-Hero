@@ -15,10 +15,9 @@ namespace BootCamp.Chapter
             _shopName = shopName;
         }
 
-        internal void ExecuteCommand(Stream stream)
+        internal void ExecuteCommand(ITransactionStream stream)
         {
-            using var transactionStream = new TransactionStream(stream);
-            var transactions = transactionStream
+            var transactions = stream
                 .ReadTransactionUntilEnd()
                 .Where(x => x.ShopName.Equals(_shopName));
             var byDayOfWeek = transactions

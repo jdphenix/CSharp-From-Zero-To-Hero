@@ -5,12 +5,41 @@ using System.IO;
 
 namespace BootCamp.Chapter
 {
-    internal class TransactionStream : IDisposable
+    internal interface ITransactionStream : IDisposable
+    {
+        Transaction ReadTransaction();
+        IEnumerable<Transaction> ReadTransactionUntilEnd();
+    }
+
+    internal class JsonTransactionStream : ITransactionStream
+    {
+        public JsonTransactionStream(Stream stream)
+        {
+
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Transaction ReadTransaction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Transaction> ReadTransactionUntilEnd()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    internal class CsvTransactionStream : ITransactionStream
     {
         private StreamReader _reader;
         private Transaction _current;
 
-        public TransactionStream(Stream stream)
+        public CsvTransactionStream(Stream stream)
         {
             _reader = new StreamReader(stream);
             IgnoreHeaderRow();
@@ -20,7 +49,7 @@ namespace BootCamp.Chapter
 
         public Transaction ReadTransaction()
         {
-            var line = _reader.ReadLine(); 
+            var line = _reader.ReadLine();
             if (line is null)
             {
                 return null;
@@ -32,12 +61,12 @@ namespace BootCamp.Chapter
 
         public IEnumerable<Transaction> ReadTransactionUntilEnd()
         {
-            var result = ReadTransaction(); 
+            var result = ReadTransaction();
 
             while (result != null)
             {
                 yield return result;
-                result = ReadTransaction(); 
+                result = ReadTransaction();
             }
 
             yield break;

@@ -57,10 +57,9 @@ namespace BootCamp.Chapter
             return transactions.Where(x => _beginning <= x.DateTime.TimeOfDay && x.DateTime.TimeOfDay <= _end);
         }
 
-        internal void ExecuteCommand(Stream stream)
+        internal void ExecuteCommand(ITransactionStream stream)
         {
-            var transactionStream = new TransactionStream(stream);
-            var transactions = FilterTimeOfDay(transactionStream.ReadTransactionUntilEnd()).ToArray();
+            var transactions = FilterTimeOfDay(stream.ReadTransactionUntilEnd()).ToArray();
 
             var transactionsByHours = transactions.ToLookup(x => x.DateTime.Hour);
             var earningsByHour = GetEarningsByHour(transactions);

@@ -37,7 +37,7 @@ namespace BootCamp.Chapter
 
         private bool CommandHasArguments() => _commandText.Length >= 2;
 
-        internal Action<Stream> ParseCommand()
+        internal Action<ITransactionStream> ParseCommand()
         {
             var cmd = _commandText[0].NormalizedArgument;
 
@@ -64,7 +64,7 @@ namespace BootCamp.Chapter
             throw new InvalidCommandException();
         }
 
-        private Action<Stream> HandleFullCommand()
+        private Action<ITransactionStream> HandleFullCommand()
         {
             if (CommandHasArguments())
             {
@@ -95,7 +95,7 @@ namespace BootCamp.Chapter
             }
         }
 
-        private Action<Stream> HandleCityCommand()
+        private Action<ITransactionStream> HandleCityCommand()
         {
             var cityArguments = new[] { "CITY", "-MIN", "-MAX", "-MONEY", "-ITEMS" };
 
@@ -108,7 +108,7 @@ namespace BootCamp.Chapter
             return command.ExecuteCommand;
         }
 
-        private Action<Stream> HandleTimeCommand()
+        private Action<ITransactionStream> HandleTimeCommand()
         {
             CommandArgument arg = null;
             if (CommandHasArguments())
@@ -123,7 +123,7 @@ namespace BootCamp.Chapter
             return new TimeCommand(_outputFile, arg).ExecuteCommand;
         }
 
-        private Action<Stream> HandleDailyCommand()
+        private Action<ITransactionStream> HandleDailyCommand()
         {
             if (!CommandHasArguments())
             {

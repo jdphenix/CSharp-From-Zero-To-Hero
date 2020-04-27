@@ -12,10 +12,9 @@ namespace BootCamp.Chapter
 
         public EventHandler<FilterCompletedEventArgs> FilterCompleted;
 
-        internal void ExecuteCommand(Stream stream)
+        internal void ExecuteCommand(ITransactionStream stream)
         {
-            using var transactionStream = new TransactionStream(stream);
-            var transactions = transactionStream.ReadTransactionUntilEnd().GroupBy(x => x.ShopName).ToArray(); 
+            var transactions = stream.ReadTransactionUntilEnd().GroupBy(x => x.ShopName).ToArray(); 
 
             foreach (var shop in transactions)
             {
