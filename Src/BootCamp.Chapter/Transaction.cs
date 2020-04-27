@@ -8,7 +8,7 @@ namespace BootCamp.Chapter
         public string City { get; set; }
         public string Street { get; set; }
         public string Item { get; set; }
-        public DateTimeOffset Time { get; set; }
+        public DateTimeOffset DateTime { get; set; }
         public decimal Price { get; set; }
     }
 }

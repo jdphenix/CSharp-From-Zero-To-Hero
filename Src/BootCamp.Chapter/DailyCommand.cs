@@ -22,7 +22,7 @@ namespace BootCamp.Chapter
                 .ReadTransactionUntilEnd()
                 .Where(x => x.ShopName.Equals(_shopName));
             var byDayOfWeek = transactions
-                .GroupBy(x => x.Time.DayOfWeek)
+                .GroupBy(x => x.DateTime.DayOfWeek)
                 .Select(x => new { Day = x.Key, Earned = x.Sum(x => x.Price) })
                 .OrderBy(x => x.Day)
                 .ToArray();

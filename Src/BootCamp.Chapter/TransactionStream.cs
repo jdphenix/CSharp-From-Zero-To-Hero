@@ -51,7 +51,7 @@ namespace BootCamp.Chapter
             transaction.City = parser.ParseNextField();
             transaction.Street = parser.ParseNextField();
             transaction.Item = parser.ParseNextField();
-            transaction.Time = DateTimeOffset.Parse(parser.ParseNextField());
+            transaction.DateTime = DateTimeOffset.Parse(parser.ParseNextField());
             transaction.Price = decimal.Parse(parser.ParseNextField(), NumberStyles.Currency);
             return transaction;
         }

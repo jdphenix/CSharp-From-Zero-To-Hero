@@ -90,7 +90,7 @@ namespace BootCamp.Chapter
                 outputText.WriteLine($"{transaction.City}, " +
                     $"{transaction.Street}, " +
                     $"{transaction.Item}, " +
-                    $"{transaction.Time:yyyy-MM-ddTHH:mm:ssZ}, " +
+                    $"{transaction.DateTime:yyyy-MM-ddTHH:mm:ssZ}, " +
                     $"\"{transaction.Price:c}\"");
             }
         }

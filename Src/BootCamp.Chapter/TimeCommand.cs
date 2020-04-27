@@ -54,7 +54,7 @@ namespace BootCamp.Chapter
                 return transactions;
             }
 
-            return transactions.Where(x => _beginning <= x.Time.TimeOfDay && x.Time.TimeOfDay <= _end);
+            return transactions.Where(x => _beginning <= x.DateTime.TimeOfDay && x.DateTime.TimeOfDay <= _end);
         }
 
         internal void ExecuteCommand(Stream stream)
@@ -62,7 +62,7 @@ namespace BootCamp.Chapter
             var transactionStream = new TransactionStream(stream);
             var transactions = FilterTimeOfDay(transactionStream.ReadTransactionUntilEnd()).ToArray();
 
-            var transactionsByHours = transactions.ToLookup(x => x.Time.Hour);
+            var transactionsByHours = transactions.ToLookup(x => x.DateTime.Hour);
             var earningsByHour = GetEarningsByHour(transactions);
 
             var reportLines = earningsByHour
@@ -103,11 +103,11 @@ namespace BootCamp.Chapter
                 )
             );
 
-           var transactionsByDay = transactions.GroupBy(x => x.Time.Date);
+           var transactionsByDay = transactions.GroupBy(x => x.DateTime.Date);
 
             foreach (var daysTransactions in transactionsByDay)
             {
-                var byHour = daysTransactions.GroupBy(x => x.Time.Hour);
+                var byHour = daysTransactions.GroupBy(x => x.DateTime.Hour);
                 foreach (var hour in byHour)
                 {
                     earningsByHour[hour.Key].Add(hour.Sum(x => x.Price));
